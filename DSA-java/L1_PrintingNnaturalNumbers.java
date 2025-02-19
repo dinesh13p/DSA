@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class A1_PrintingNnaturalNumbers {
+public class L1_PrintingNnaturalNumbers {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
