@@ -1,33 +1,31 @@
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] numbers = {5, 3, 8, 1, 2, 7};
+        int[] numbers = { 5, 3, 8, 1, 2, 7, 11, 17 };
         int size = numbers.length;
-
-        System.out.println("Original array:");
-        printArray(numbers);
-
-        // Insertion Sort Algorithm
+        System.out.println();
+        System.out.println("Insertion Sort");
+        System.out.println("-----------------");
+        System.out.println("Original array of numbers: ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+        System.out.println();
+        // Insertion Sort
         for (int i = 1; i < size; i++) {
-            int key = numbers[i];
+            int temp = numbers[i];
             int j = i - 1;
-
-            // Shift elements of the sorted part of the array to the right
-            while (j >= 0 && numbers[j] > key) {
+            while (j >= 0 && temp < numbers[j]) {
                 numbers[j + 1] = numbers[j];
                 j--;
             }
-            numbers[j + 1] = key;
-        }
-
-        System.out.println("\nSorted array:");
-        printArray(numbers);
-    }
-
-    // Method to print the array
-    private static void printArray(int[] arr) {
-        for (int num : arr) {
-            System.out.print(num + " ");
+            numbers[j + 1] = temp;
         }
         System.out.println();
+
+        // Printing sorted numbers
+        System.out.println("Sorted array of numbers: ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(numbers[i] + " ");
+        }
     }
 }

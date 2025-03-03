@@ -1,49 +1,77 @@
 public class MergeSort {
 
-    static void sort(int[] a, int start, int mid, int end) {
-        // int size = end - start;
-        int i = start;
-        int j = mid;
-        int[] temp = new int[end - start];
-        int k = 0;
-        while (i < mid && j < end) {
-            if (a[i] < a[j]) 
-                temp[k++] = a[i++];
-             else 
-                temp[k++] = a[j++];
-        }
-        while (i < mid) {
-            temp[k++] = a[j++];
-        }
-        while (j < end) {
-            temp[k++] = a[i++];
-        }
-        k = 0;
-        for (i = start; i < end;) {
-            a[i++] = temp[k++];
+    static void merge(int arr[], int l, int m, int r) {
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+
+        int i = 0, j = 0;
+
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
         }
 
-        
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
     }
 
-    public static void main(String[] args) {
-        int a[] = { 3, 1, 6, 40, 4, 5, 10, 20};
-        // int start = 0;
+    static void sort(int arr[], int l, int r) {
+        if (l < r) {
 
-        int size = a.length;
-        System.out.println("Array before sorting: ");
-        for (int i = 0; i < size; i++){
-            System.out.print("   "+a[i]);
+            int m = l + (r - l) / 2;
+
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+
+            merge(arr, l, m, r);
         }
-        // int mid = a.length / 2;
-        // int end = a.length;
-        sort(a, 4, 6, 8);
-
-        System.out.println("\nArray after sorting: ");
-        for (int i = 0; i < size; i++) {
-            System.out.print("   " + a[i]);
-        }
-
     }
-    
+
+    static void printArray(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+
+    // Driver code
+    public static void main(String args[]) {
+        int arr[] = { 12, 11, 13, 5, 6, 7 };
+        System.out.println();
+        System.out.println("Merge Sort");
+        System.out.println("------------------");
+        System.out.println();
+
+        System.out.println("Given array: ");
+        printArray(arr);
+
+        sort(arr, 0, arr.length - 1);
+
+        System.out.println("\nSorted array: ");
+        printArray(arr);
+    }
 }
