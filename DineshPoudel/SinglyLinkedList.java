@@ -126,33 +126,33 @@ public class SinglyLinkedList {
         LinkedList linkedlist = new LinkedList();
 
         linkedlist.print(); // Empty list
-        linkedlist.deleteAtFirst();//Mothing to delete
+        linkedlist.deleteAtFirst();//Nothing to delete
         linkedlist.insertAtLast(4);
         linkedlist.insertAtLast(6);
         linkedlist.insertAtLast(8);
         linkedlist.insertAtLast(9);
         System.out.println("\nAfter inserting elements at Last :");
-        linkedlist.print(); // 3 --> 5 --> 7 --> 9 --> NULL
+        linkedlist.print(); 
 
         linkedlist.insertAtFirst(2);
         System.out.println("\nAfter inserting element at First :");
-        linkedlist.print(); // 1 --> 3 --> 5 --> 7 --> 9 --> NULL
+        linkedlist.print(); 
 
         linkedlist.insertAtNth(5,4);
         System.out.println("\nAfter inserting element at 5th Position :");
-        linkedlist.print(); // 1 --> 3 --> 5 --> 7 --> 4 --> 9 --> NULL
+        linkedlist.print(); 
 
         linkedlist.deleteAtFirst();
         System.out.println("\nAfter deleting element at First :");
-        linkedlist.print(); // 3 --> 5 --> 7 --> 9 --> NULL
+        linkedlist.print(); 
 
         linkedlist.deleteAtLast();
         System.out.println("\nAfter deleting element at Last");
-        linkedlist.print(); // 3 --> 5 --> 7 --> NULL
+        linkedlist.print();
 
         linkedlist.deleteAtNth(2);
         System.out.println("\nAfter deleting element at 3rd Position :");
-        linkedlist.print(); // 1 --> 3 --> 5 --> 7 --> 9 --> NULL
+        linkedlist.print(); 
         
         System.out.println();
         linkedlist.deleteAtNth(10);
